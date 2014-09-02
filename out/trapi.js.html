@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: trapi.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: trapi.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//  trapi.js
+
+    //  Javascript API for trading
+
+    //  Callback Prototypes
+
+
+    /**
+        User Signal Callback Event  (사용자 신호)
+
+        사용자가 구독 중인 신호들의 목록을 표현하기 위함.
+
+        @param  {string}  signals :             신호 목록 (list, array)
+        @param  {string}  signals[i].id :       신호 ID
+        @param  {string}  signals[i].name :     신호명
+    */
+    var on_user_signals = function (o) {};
+
+
+    /**
+        Account Callback Event  (계좌정보)
+
+            @param  {string}  evt :       추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
+            @param  {string}  acode :     계좌 코드, (계좌 번호)
+            @param  {string}  name :      계좌명
+            @param  {string}  alias :     계좌별칭
+    */
+    var on_account = function (o) {};
+
+
+    /**
+        Deposit Callback Event  (예수금)
+
+            @param  {string}  evt :       추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
+            @param  {string}  acode :     계좌 코드, (계좌 번호)
+            @param  {number}  deposit :   전체 예수금
+            @param  {number}  available : 주문가능금액
+    */
+    var on_deposit =  function (o) {};
+
+
+    /**
+        Position Callback Event (잔고정보)
+
+            @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
+            @param  {string}  acode :   계좌 코드, 계좌 번호
+            @param  {string}  fcode :   종목 코드
+            @param  {number}  qty :     잔고 수량 (음수는 매도 잔고를 뜻함, 파생의 경우)
+            @param  {number}  avg :     잔고 평균가
+            @param  {number}  amount :  장부 금액 (매입금액)
+    */
+    var on_position =  function (o) {};
+
+
+    /**
+        Order Callback Event (주문정보)
+
+            @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
+            @param  {string}  id :      주문번호 (trapi 내부 ID)
+            @param  {string}  local_id :    주문번호 (증권사용)
+            @param  {string}  acode :   계좌 코드, 계좌 번호
+            @param  {string}  fcode :   종목 코드
+            @param  {string}  side :    주문 방향 (1:매수, -1:매도)
+            @param  {number}  qty :     주문 수량
+            @param  {number}  price :   주문 가격
+            @param  {number}  amount :  주문 금액
+            @param  {number}  fillqty : 체결 수량
+    */
+    var on_order =  function (o) {};
+
+
+    /**
+        Fill Callback Event (체결정보)
+
+            @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
+            @param  {string}  id :      주문번호 (trapi 내부 ID)
+            @param  {string}  local_id : 주문번호 (증권사용)
+            @param  {string}  fill_id : 체결번호 (증권사용)
+            @param  {number}  qty :     체결 수량
+            @param  {number}  price :   체결 가격
+    */
+    var on_fill = function (o) {};
+
+
+    /**
+        Signal Callback Event (신호정보)
+
+            신호 발생시, 콜백.
+
+            @param  {string}  id :        신호 ID
+            @param  {string}  name :      신호명
+            @param  {string}  fcode :     종목코드
+
+    */
+    var on_signal = function (o) {};
+
+
+    /**
+        최초 사용자 정보 입력.
+        사용자 별로 미리 정의된 신호가 세팅됨.
+
+        @param {string} email : 사용자 이메일 주소
+
+    */
+    var user_login = function (o) {};
+
+
+    /**
+        register trading API callbacks. 트레이딩 콜백 함수 등록
+
+        이벤트 콜백 함수를 등록한다.\n
+        페이지에서 가장 처음에 수행해야 할 함수.\n
+        모든 이벤트는 콜백으로 호촐된다.
+
+        @param  {string}  category - Callback Category.
+                                    "account" : for Account (계좌)
+                                    "deposit" : for Deposit (예수금)
+                                    "position" : for Position (잔고)
+                                    "order" : for Order (주문)
+                                    "fill" : for Fill (체결)
+                                    "signal" : for Signal (매매신호)
+    */
+    var register_trapi_callbacks = function (category,cb) {};
+
+
+    /**
+        신호 선택. 신호별 화면 구성을 변경해야 하므로...
+
+        @param  {string}  id :        선택한 신호 ID
+    */
+    var select_signal = function (id) {};
+
+
+    /**
+        AA. all events
+
+        @param  {string}  signal_name :        신호 ID
+    */
+    var aa = function (signal_name) {};
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#aa">aa</a></li><li><a href="global.html#on_account">on_account</a></li><li><a href="global.html#on_deposit">on_deposit</a></li><li><a href="global.html#on_fill">on_fill</a></li><li><a href="global.html#on_order">on_order</a></li><li><a href="global.html#on_position">on_position</a></li><li><a href="global.html#on_signal">on_signal</a></li><li><a href="global.html#on_user_signals">on_user_signals</a></li><li><a href="global.html#register_trapi_callbacks">register_trapi_callbacks</a></li><li><a href="global.html#select_signal">select_signal</a></li><li><a href="global.html#user_login">user_login</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 02 2014 14:39:47 GMT+0900 (대한민국 표준시)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
