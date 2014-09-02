@@ -6,7 +6,19 @@
 
 
     /**
-        Account Callback Event  (예수금)
+        User Signal Callback Event  (사용자 신호)
+
+        사용자가 구독 중인 신호들의 목록을 표현하기 위함.
+
+        @param  {string}  signals :             신호 목록 (list, array)
+        @param  {string}  signals[i].id :       신호 ID
+        @param  {string}  signals[i].name :     신호명
+    */
+    var on_user_signals = function (o) {};
+
+
+    /**
+        Account Callback Event  (계좌정보)
 
             @param  {string}  evt :       추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
             @param  {string}  acode :     계좌 코드, (계좌 번호)
@@ -28,7 +40,7 @@
 
 
     /**
-        Position Callback Event
+        Position Callback Event (잔고정보)
 
             @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
             @param  {string}  acode :   계좌 코드, 계좌 번호
@@ -41,7 +53,7 @@
 
 
     /**
-        Order Callback Event
+        Order Callback Event (주문정보)
 
             @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
             @param  {string}  id :      주문번호 (trapi 내부 ID)
@@ -58,7 +70,7 @@
 
 
     /**
-        Fill Callback Event
+        Fill Callback Event (체결정보)
 
             @param  {string}  evt :     추가/삭제/갱신 여부  ('A'/'D'/'U'. Add,Delete,Update)
             @param  {string}  id :      주문번호 (trapi 내부 ID)
@@ -71,7 +83,7 @@
 
 
     /**
-        Signal Callback
+        Signal Callback Event (신호정보)
 
             신호 발생시, 콜백.
 
@@ -84,7 +96,7 @@
 
 
     /**
-        사용자 정보 입력.
+        최초 사용자 정보 입력.
         사용자 별로 미리 정의된 신호가 세팅됨.
 
         @param {string} email : 사용자 이메일 주소
@@ -94,7 +106,7 @@
 
 
     /**
-        register trading API callbacks
+        register trading API callbacks. 트레이딩 콜백 함수 등록
 
         이벤트 콜백 함수를 등록한다.\n
         페이지에서 가장 처음에 수행해야 할 함수.\n
@@ -114,9 +126,9 @@
     /**
         신호 선택. 신호별 화면 구성을 변경해야 하므로...
 
-        @param  {string}  signal_name :        신호 ID
+        @param  {string}  id :        선택한 신호 ID
     */
-    var select_signal = function (signal_name) {};
+    var select_signal = function (id) {};
 
 
     /**
