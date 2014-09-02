@@ -90,9 +90,7 @@
         @param {string} email : 사용자 이메일 주소
 
     */
-    var user_login = function (o) {
-        //
-    };
+    var user_login = function (o) {};
 
 
     /**
@@ -110,18 +108,15 @@
                                     "fill" : for Fill (체결)
                                     "signal" : for Signal (매매신호)
     */
-    var register_trapi_callbacks = function (category,cb) {
-        //
-    };
+    var register_trapi_callbacks = function (category,cb) {};
 
 
     /**
-        select signal. all events
+        신호 선택. 신호별 화면 구성을 변경해야 하므로...
 
         @param  {string}  signal_name :        신호 ID
     */
-    var select_signal = function (signal_name) {
-    };
+    var select_signal = function (signal_name) {};
 
 
     /**
@@ -129,7 +124,6 @@
 
         @param  {string}  signal_name :        신호 ID
     */
-    var aa = function (signal_name) {
-    };
+    var aa = function (signal_name) {};
 
 
