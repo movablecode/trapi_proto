@@ -1,5 +1,4 @@
 //  trapi.js
-if ((typeof(inproc)=='undefined') || (inproc)) {
 
     //  Javascript API for trading
 
@@ -133,6 +132,4 @@ if ((typeof(inproc)=='undefined') || (inproc)) {
     var aa = function (signal_name) {
     };
 
-
-};   //  if inproc
 
