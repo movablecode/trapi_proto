@@ -132,10 +132,13 @@
 
 
     /**
-        AA. all events
+        신호 설정. 신호별 작동 방식에 대한 설정.
 
-        @param  {string}  signal_name :        신호 ID
+        @param  {string}  id :        선택한 신호 ID
+        @param  {string}  opt :       설정 객체. (신호마다 설정 구조가 다를 수 있으므로 신호별 구조에 맞도록 옵션을 입력한다.)
     */
-    var aa = function (signal_name) {};
+    var configure_signal = function (id,opt) {};
+
+
 
 
