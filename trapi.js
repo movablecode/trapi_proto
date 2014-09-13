@@ -87,12 +87,27 @@
 
             신호 발생시, 콜백.
 
-            @param  {string}  id :        신호 ID
-            @param  {string}  name :      신호명
-            @param  {string}  fcode :     종목코드
+            @param  {string}    id :        신호 ID
+            @param  {string}    name :      신호명
+            @param  {string}    fcode :     종목코드
+            @param  {string}    side :      방향 (buy,sell)
+            @param  {number}    price :     신호가격
+            @param  {datetime}  time :      신호발생 일시
 
     */
     var on_signal = function (o) {};
+
+
+    /**
+        Session Status Callback Event (세션 상태 정보)
+
+            API 세션의 상태가 변경될 때 콜백되는 이벤트
+
+        @param {string}  id :       세션 ID
+        @param {string}  name :     세션 이름
+        @param {string}  status :   세션 상태
+    */
+    var on_session_status = function (o) {};
 
 
     /**
